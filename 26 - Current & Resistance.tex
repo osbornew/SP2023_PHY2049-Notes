@@ -1,0 +1,54 @@
+\documentclass[]{article}
+\usepackage[T1]{fontenc}
+\usepackage{siunitx}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{physics}
+
+\begin{document}
+\section{Electric Current}
+Current is the rate of flow of charge within a conductor. In other words,
+\[ i = \dv{q}{t} \]
+Current is the same everywhere in a conductor unless it has branches. If it branches, current is distributed according to resistance (covered later).
+
+Current is caused by a potential difference $ V $ applied to a conductor, which is itself due to an electric field $ \vec{E} $ produced inside the conductor. $ \vec{E} = 0 $ in conductors only when they are in static equilibrium. When an electric field exerts force on mobile electrons, a current is produced.
+
+\section{Current Density}
+Current density is basically how much current passes through a cross-sectional area.
+\[ J = \frac{i}{A} \]
+\[ i = \int \vec{J} \cdot d\vec{A} \]
+
+\subsection{Drift speed of electrons}
+In a conductor, electrons move randomly with no net movement associated with them. However, when a current is applied, a drift speed $ v_d $ in the opposite direction of the electric field that produced the current. For positive charges, this is in the same direction as the current itself. The charge density in this case is:
+\[ \vec{J} = \left(ne\right)\vec{v}_d \]
+Honestly we never used this so like, whatever.
+
+\section{Resistance}
+I'm sure everyone's familiar with Ohm's Law...
+\[ V = Ri \Rightarrow i = \frac{V}{R} \]
+
+\subsection{Resistivity}
+...but there's a new funky physics term to know, and that is \emph{resistivity}:
+\[ \rho = \frac{E}{J} \]
+It's essentially a generalized material-focused version of resistance. Instead of looking at potential difference and current, we look at more focused aspects of a material: The electric field at a given point in resistive material and the current density at the same point.
+
+In vector form, this is represented as:
+\[ \vec{E} = \rho \vec{J} \]
+Which is also referred to as "Local Ohm's Law"
+
+Resistivity can be related back to resistance with the following relation:
+\[ R = \rho \frac{L}{A} \]
+Where $ L $ is the length of the conductor and $ A $ is the cross-sectional area of it.
+
+One last thing to note is \emph{conductivity}, which is just $ \sigma = 1 / \rho $ (not to be confused with charge per unit area, also using $ \sigma $).
+
+\section{Power}
+Power is the rate of electrical energy transfer and is found by:
+\[ P = iV \]
+Its unit is the \emph{Watt} (\unit{\watt})
+
+If the device is a resistor, we know that $ V = Ri $ and $ i = V / R $, so we can rewrite the equation as such:
+\[ P = iV = i^2 R = \frac{V^2}{R} \]
+In a resistor, power is \emph{always} dispelled as heat.
+
+\end{document}

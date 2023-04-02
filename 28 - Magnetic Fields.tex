@@ -1,0 +1,59 @@
+\documentclass[]{article}
+\usepackage[T1]{fontenc}
+\usepackage{siunitx}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{physics}
+
+\begin{document}
+\section{Magnetic Force}
+Using experiments described on page 804, we end up with defining a magnetic force to be a vector quantity that is perpendicular to the velocity of particles and the magnetic field:
+\[ \vec{F}_B = q\vec{v} \cross \vec{B} \]
+\[ F_B = \left|q\right| v B \sin \phi \]
+where $ \phi $ is the angle between the directions of velocity $ \vec{v} $ and magnetic field $ \vec{B} $ (throughout this course, this appears to always be $ \ang{90} $).
+
+Miscellaneous aside: the unit of magnetic field is the \emph{Tesla} (\unit{\tesla}) (\unit{\newton\per\ampere\per\meter}).
+
+\subsection{Right Hand Rule}
+Little calc 3 refresher: the cross product finds a vector that is perpendicular to both of the input vectors (since two vectors define a plane). Since our coordinate system is right-turn based, we can use the \emph{right hand rule} to determine the direction of the magnetic force.
+
+Point your hand in the direction of the first term (in this case, $ \vec{v} $) and curl your fingers in the direction of the second term (in this case, $ \vec{B} $). The direction of your thumb is then the direction of the force. \emph{If the charge is negative, reverse this direction.}
+
+\section{Crossed Fields}
+I genuinely don't remember anything about this, but check out this equation:
+\[ v = \frac{E}{B} \]
+See page 809.
+
+\section{Circular Motion}
+You may notice that $ \vec{F}_B $ is perpendicular to the velocity. What does that mean? Circular motion! Using the physics 1 relation of $ F = m \frac{v^2}{r} $, we can derive the following relations:
+\[ r = \frac{mv}{\left|q\right|B} \]
+\[ T = \frac{2\pi m}{\left|q\right|B} \]
+\[ f = \frac{1}{T} \]
+\[ \omega = 2 \pi f = \frac{\left|q\right|B}{m} \]
+
+\subsection{Cyclotrons}
+Uh skip over this maybe? I dunno.
+
+\section{Force on a Current-Carrying Wire}
+The Hall Effect describes how a magnetic force exerts a small sideways force on electrons moving in a wire. This force is found to be:
+\[ \vec{F}_b = i\vec{L} \cross \vec{B} \]
+\[ F_b = iLB \sin \phi \]
+$ \vec{L} $ is a length vector with magnitude $ L $ and directed along the wire. $ \phi $ is the angle between $ \vec{L} $ and $ \vec{B} $.
+
+\section{Magnetic Torque \& Moment}
+A current-carrying loop within a magnetic field perpendicular to one of its side directions will have a magnetic force $ \vec{F} $ on one side and $ -\vec{F} $ on the other. This produces a torque on the loop! This torque has the magnitude:
+\[ \tau = NiAB \sin \theta \]
+Where $ N $ is the number of turns in the coil and $ A $ is the area enclosed by each turn of the coil.
+
+We now define a new term, \emph{magnetic dipole moment}, represented by $ \vec{\mu} $. The direction of this vector is a right-hand-rule: curl your fingers in the direction of the current, and the moment is the resulting normal vector. The magnitude and resulting equation are then defined to be:
+\[ \mu = NiA \]
+\[ \vec{\tau} = \vec{\mu} \cross \vec{B} \]
+(note: this looks a lot like the torque on an electric dipole from an electric field)
+
+\subsection{Energy}
+The \emph{energy} by this torque is found to be:
+\[ U(\theta) = -\vec{\mu} \cdot \vec{B} \]
+And the work done follows:
+\[ W_a = \Delta U = U_f - U_i \]
+
+\end{document}

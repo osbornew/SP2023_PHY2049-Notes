@@ -1,0 +1,50 @@
+\documentclass[]{article}
+\usepackage[T1]{fontenc}
+\usepackage{siunitx}
+\usepackage{parskip} % no indent
+
+\begin{document}
+\section{Physics 1 Review}
+Let's start with a basic Physics 1 review. Work is defined as the following:
+\[ \int_{i}^{f} \vec{F} \cdot d\vec{s} \]
+This can be simplified to $ W = F \times d $ when $ F $ is constant. Additionally, the work-energy theorem states that:
+\[ \Delta K = W_{net} \]
+And as a reminder, $ E_k = \frac{1}{2}mv^2 $
+
+Finally, work due to conservative forces is path independent and also has the relation of $ W = - \Delta E_u $. Work due to non-conservative forces is path dependent.
+
+\section{The Basics}
+Electric potential is very similar to physical work, but it is defined with respect to the electric field:
+\[ \Delta V = - \int_{i}^{f}\vec{E} \cdot d\vec{s} \]
+In a distribution, we are usually able to use the point charge equation with already-defined variables like $ \lambda = \frac{C}{\ell} $ etc. to derive simpler equations:
+\[ V = \int dV = \frac{1}{4\pi\epsilon_0} \int \frac{dq}{r} \]
+If we want to find the true potential energy of an electric system, we multiply the electric potential by the charge:
+\[ U = qV \]
+\begin{itemize}
+  \item The unit for electric potential is \unit{\joule\per\coulomb}, also known as the \emph{Volt} (\unit{\volt}).
+  \item This ties back in to the electric field, as the electric field points from higher electric potential to lower electric potential.
+  \item A similar principle to superposition applies to electric potential. Electric potential is always positive, so one simply adds up every individual object's electric potential to see the total electric potential. What is important to note, however, is that true potential energy $ E_u $ is based on charge \emph{only}, unlike electric field. Keep this in mind when adding together potential energy!
+\end{itemize}
+
+\subsection{Constant Electric Field}
+When the electric field is constant, we can simplify the calculation to be:
+\[ \Delta V = - \vec{E} \cdot \vec{d}  = - Ed\cos(\theta) \]
+
+\section{Special Cases}
+\subsection{Singular Charged Particle (Spherical)}
+\[ V = \frac{1}{4\pi\epsilon_0} \frac{q}{r} \]
+Where $ r $ is the distance from the center of the sphere (or particle) to the point of measurement.
+
+\subsection{Multiple Charged Particles}
+The total electric potential is just an addition of their individual potentials:
+\[ V = \frac{1}{4\pi\epsilon_0} \sum_{i} \frac{q_i}{r_i} \] However, since total potential energy is a two-particle based calculation, one must add up every individual combination of two particles in the system:
+\[ U = \frac{1}{4\pi\epsilon_0} \sum_{i, j} \frac{q_i q_j}{r_{i,j}} \]
+
+\section{Calculating Electric Field from Potential}
+Just take the partial derivative in the respective direction. For example,
+\[ E_x = - \frac{\partial V}{\partial x} \]
+
+\section{Potential of a Chagred Isolated Conductor}
+Since the electric field inside of a conductor is 0, the voltage is constant.
+
+\end{document}

@@ -1,0 +1,43 @@
+\documentclass[]{article}
+\usepackage[T1]{fontenc}
+\usepackage{siunitx}
+\usepackage{amsmath}
+\usepackage{parskip}
+
+\begin{document}
+\section{Capacitors}
+A capacitor is a device used to store and deliver electricity very quickly. It does this by accumulating positive charges and negative charges on two closely placed conductors. This generates an electric field and also means that voltage is proportional to the amount of charge stored in a capacitor (unlike a battery). Capacitors come in many forms, but for this class, we'll only be looking at parallel plate capacitors.
+
+In a current diagram, capacitors are shown as two parallel lines separated by nothing and perpendicular to the wire (look online for details).
+
+\section{Capacitance}
+Capacitance is a measure of how much charge must be put on the plates to produce a certain potential difference between them. In other words:
+\[ C = \frac{q}{V} \Rightarrow q = CV \]
+For a parallel plate capacitor, capacitance is calculated with the following:
+\[ C = \frac{\epsilon_0 A}{d} \]
+With $ A $ being the area of one of the plates' surface and $ d $ being the distance between the plates.
+
+Formulas for other types of capacitors not used in this course are found on the formula sheet.
+
+\section{Parallel and Series Capacitance}
+In a series circuit, where a capacitor follows another one in a singular line, effective capacitance is calculated like the following:
+\[ \frac{1}{C_{\text{eq}}} = \sum_{k}\frac{1}{C_k} \]
+In a parallel circuit, where two capacitors are on different wires (but start and end with a singular wire), effective capacitance is the following:
+\[ C_{\text{eq}} = \sum_{k} C_k \]
+
+\section{Potential Energy of Charged Capacitor}
+The potential energy of a charged parallel-plate capacitor is the following:
+\[ U_E = \frac{1}{2} C V^2 = \frac{1}{2} A E^2 d \]
+Importantly, this means that $ U \propto C $. Therefore, when finding the individual potentials of capacitors in a circuit, distribute the total potential based on the capacitance of each individual capacitor.
+
+Also, there's this energy density thing:
+\[ u_E = \frac{U_E}{\text{Vol}} = \frac{1}{2} \epsilon_0 E^2 \]
+
+\section{Dielectric Filler}
+We can put some dielectric filler between the plates to reduce the effective capacitance of a capacitor. In this event, capacitance is the following:
+\[ C_{\text{eq}} = \kappa C_0 \]
+Where $ C_0 $ is the capacitance without any filler, and $ \kappa $ is the dielectric constant of the filler.
+
+In the event that multiple different types of fillers exist between one capacitor, imagine individual capacitors for each filler in \emph{parallel}. Each capacitor has $ A = A_{\text{filler}} $ and the plates are separated by $ d = w_{\text{filler}} $. Then, to find the equivalent capacitance, simply add up the individual capacitances.
+
+\end{document}

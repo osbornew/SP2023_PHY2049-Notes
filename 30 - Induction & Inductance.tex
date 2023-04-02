@@ -1,0 +1,86 @@
+\documentclass[]{article}
+\usepackage[T1]{fontenc}
+\usepackage{siunitx}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{physics}
+
+\begin{document}
+\section{Magnetic Flux}
+Magnetic flux is the magnetic analogue to electric flux.
+\[ \Phi_B = \int \vec{B} \cdot \dd \vec{A} \]
+Note that unlike electric flux, magnetic flux is \emph{not} over a closed surface. This wouldn't make much sense. Instead, magnetic flux is over an open surface. The units for magnetic flux are \unit{\tesla\meter\squared}, also known as the \emph{Weber} (\unit{\weber}).
+
+\subsection{Plane}
+For a flat plane with area $ A $ inside uniform magnetic field $ \vec{B} $ and angle $ \theta $ between the plane and field,
+\[ \Phi_B = B \cos \theta \int \dd \vec{A} = AB\cos \theta \]
+
+\section{Faraday's Law of Induction}
+Here's a fun relation:
+\[ \mathcal{E} = - \dv{\Phi_B}{t} \]
+The magnitude of the emf is simply how flux changes with time, and the direction of this induced emf is that which opposes the flux change. If we have a coil with $ N $ turns, the induced emf is the same as above, just multiplied by $ N $.
+
+\subsection{Len'z Law}
+Another way of thinking about the direction of Faraday's law is that the direction of emf (and hence the direction of induced current) is such that $ \vec{B} $ due to the current will oppose $ \Phi_B $.
+
+Essentially, if $ B $ is decreasing, the induced magnetic field is in the same direction as the external magnetic field. Vice versa.
+
+\subsection{Generalized}
+To drive induced current, there must be an electric field in the conductor. Additionally, changing magnetic flux produces an electric field. As such, here's a little generalization:
+\[ \oint \vec{E} \cdot \dd \vec{s} = - \dv{\Phi_B}{t} \]
+
+\section{Inductor \& Inductance}
+The inductance $ L $ of an inductor is the following:
+\[ L = \frac{N \Phi_B}{i} \]
+The unit is \unit{\tesla\meter\squared\per\ampere}, or a \emph{Henry} (\unit{\henry}). Inductance is constant for a given inductor.
+
+Inductors are usually a solenoid with a length $ \ell $ and cross-sectional area $ A $, meaning that inductance becomes the following:
+\[ L = \mu_0 n^2 \ell A \]
+With $ n $ being turns per unit length.
+
+\subsection{Induced emf}
+The self-induced emf from an inductor is the following:
+\[ \mathcal{E} = - L \dv{i}{t} \]
+The negative sign indicates that the self-induced emf opposes the change in current.
+
+\section{RL Circuits}
+Recall an RC circuit from chapter 27. An RL circuit is basically the same thing but opposite. Note the following equations closely:
+\[ i = \frac{\mathcal{E}}{R} \left(1 - e^{-tR / L}\right) \]
+\[ V_L = \mathcal{E} e^{-tR / L} \]
+Very close to the relations of a capacitor, but now resistance is in the numerator and the terms that are one minus the exponent are reversed. Just like with capacitors, inductors have an \emph{inductive time constant}
+\[ \tau_L = \frac{L}{R} \]
+
+\subsection{Limits}
+The limits when $ t = 0 $ and as $ t \to \infty $ are the opposite of capacitors:
+
+At $ t = 0 $:
+\begin{itemize}
+  \item $ i = 0 $
+  \item $ V_L = \mathcal{E} $
+  \item The inductor acts as a normal wire with zero resistance.
+\end{itemize}
+
+As $ t \to \infty $:
+\begin{itemize}
+  \item $ i \to \frac{\mathcal{E}}{R} $
+  \item $ V_L \to 0 $
+  \item The inductor acts as a broken wire with infinite resistance.
+\end{itemize}
+
+\section{Energy Stored in a Magnetic Field}
+\[ U_B = \frac{1}{2} L i^2 \]
+Note: this is similar to the electric field equation:
+\[ U_E = \frac{q^2}{2C} \]
+
+\subsection{Energy Density of a Magnetic Field}
+\[ u_B = \frac{U_B}{\text{Vol}} = \frac{B^2}{2\mu_0} \]
+
+\subsection{Mutual Inductance}
+A magnetic field from one coil might extend into another coil. How do we quantify this? Label the two coils 1 and 2. From there,
+\[ \mathcal{E}_1 = -M \dv{i_1}{t} \]
+\[ \mathcal{E}_2 = -M \dv{i_2}{t} \]
+Where $ M $ is:
+\[ M = \frac{N_2\Phi_{2,1}}{i_1} \]
+Were $ N_2 $ is the absolute number of turns in coil 2 and $ \Phi_{2,1} $ is the magnetic flux through coil 2 that's associated with the current in coil 1. An important thing to note is that $ M_{2,1} = M_{1,2} = M $. For the above example, I used $ M_{2,1} $ and you can just flip the associative numbers.
+
+\end{document}

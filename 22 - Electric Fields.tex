@@ -1,0 +1,48 @@
+\documentclass[]{article}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{siunitx}
+
+\begin{document}
+\section{The Basics}
+\begin{itemize}
+  \item Electric field exists everywhere in space.
+  \item The direction of the field is based on the force enacted on a positive charge
+  \item The field (represented with "field lines") goes away from positive charges and towards negative charges
+\end{itemize}
+\subsection{Superposition Principle}
+You can add the electric fields at any given point to get the "net" electric field.
+\section{General Formulas}
+In a completely general case, the electric field $ E $ is defined as the following:
+\[ \vec{E} = \frac{\vec{F}}{q_{0}} \]
+For point charges, the force enacted on each other is the same as Coulomb's Law, just with different labels. This results in the following:
+\[ |E| = \frac{1}{4\pi\epsilon_0}\frac{q}{r^2} \]
+\section{Special Cases}
+A single equation for a point charge is not really useful. As such, we can derive equations for other cases by using $ \lambda = \frac{q}{\ell} $ as the charge per unit length and $ \sigma = \frac{q}{A} $ as the charge per unit area.
+We derive equations by using the derivative of $ q $ expressed with $ \lambda \,ds $ or $ \sigma dA $. From there, we can integrate the derivative of the point equation for $ E $ (which is the exact same as the normal equation, just with $ dq $ instead of $ q $) to get the true equation for $ E $.
+\subsection{Ring of Charge (electric field on centered axis)}
+Since we're dealing with a ring, $ \ell = 2 \pi R $, where $ R $ is the radius of the ring.
+\[ \lambda = \frac{q}{2 \pi R} \Rightarrow dq = \lambda \,ds \]
+After integrating $ dE $ (see pg 640 for details), we arrive at the following equation for an electric field $ z $ units above the axis of a ring:
+\[ |E_z| = \frac{1}{4 \pi \epsilon_0} \frac{q z}{(z^2 + R^2)^{3/2}} \]
+Note: All electric field in the x and z directions cancel out, hence only the $ E_z $.
+\subsection{Arc of Charge (electric field in plane)}
+Assuming a perfect 1/4 circle around the origin, $ |E_x| = |E_y| $.
+\[ |E_x| = \frac{1}{4\pi\epsilon_0} \frac{\lambda}{r} \]
+\subsection{Line Segment of Charge (field \emph{parallel} to wire)}
+\[ |E_x| = \frac{\lambda}{4\pi\epsilon_0}\left(\frac{-1}{r_2} + \frac{1}{r_1}\right) \]
+where $ r_1 $ is the distance between the point and the wire and $ r_2 $ is $ r_1 + \ell $.
+\subsection{Disk of Charge (electric field on centered axis)}
+\[ E_z = \frac{\sigma}{2\epsilon_0}\left(1 - \frac{z}{\sqrt{z^2 + R^2}}\right) \]
+\subsubsection{A Curious Note}
+\[ \lim_{R \to \infty} E_z = \frac{\sigma}{2\epsilon_0} \]
+which is the equation for the electric field at a point P on an axis normal to a plane.
+
+\section{Dipole in an Electric Field}
+When a dipole is placed in a uniform electric field, it experiences a \emph{torque} due to the electric field wanting to oppose the charges in different directions.
+For a dipole with both ends having equal and opposite charges, separated by a distance $ d $, and in an electric field $ \vec{E} $,
+\[ \vec{\tau} = \vec{p} \times \vec{E} \]
+\[ U = -\vec{p} \cdot \vec{E} \]
+where $ p = qd $ is the moment on a dipole. Additionally, the following holds:
+\[ |\vec{\tau}| = |\vec{p} \times \vec{E}| = pE\sin(\theta) \]
+\end{document}

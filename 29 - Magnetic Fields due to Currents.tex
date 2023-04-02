@@ -1,0 +1,75 @@
+\documentclass[]{article}
+\usepackage[T1]{fontenc}
+\usepackage{siunitx}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{physics}
+
+\begin{document}
+\section{Magnetic Field Due to Current}
+In a very general case wire with current flowing, we can find the magnetic field by the following (See page 837 for details):
+\[ \dd{\vec{B}} = \frac{\mu_0}{4 \pi} \frac{i \dd{\vec{s}} \cross \hat{\textrm{r}}}{r^2} \]
+\[ \dd{B} = \frac{\mu_0}{4 \pi} \frac{i \dd{s} \sin \theta}{r^2} \]
+Where $ \dd{\vec{s}} $ is the differential element of the wire in the direction of the current. We then multiply the current's magnitude to this to get $ i \dd{\vec{s}} $, a quantifiable vector for current magnitude and direction in relation to the wire. $ r $ is the distance from the wire point in question and where we want to measure the field, and $ \hat{\textrm{r}} $ is a unit vector in the same direction as $ r $. $ \theta $ is the angle between $ \vec{s} $ and $ \vec{r} $. $ \mu_0 $ is a special constant with value:
+\[ \mu_0 = 4 \pi \times 10^{-7} ~ \unit{\tesla\meter\per\ampere} \]
+These two equations are known as the \emph{Biot-Savart Law}.
+
+\subsection{Straight Wire}
+For our purposes, we're only going to be looking at the magnetic field around a long straight wire, where change of direction is either negligible or doesn't exist. For this, we have two relations for the magnetic field. For the magnitude,
+\[ B = \frac{\mu_0 i}{2 \pi R} \]
+Where $ R $ is the perpendicular distance from the center of the wire to the point of measurement.
+
+The direction of the magnetic field is given by a right-hand rule. Point your thumb in the direction of the current, and the way your fingers naturally curl is the direction of the magnetic field.
+
+\subsection{Center of Arc}
+At the center of a circular arc of current, the magnetic field magnitude is:
+\[ B = \frac{\mu_0 i \phi}{4 \pi R} \]
+Where $ \phi $ is the angle of the arc in radians. The direction is found by the same right-hand rule.
+
+\subsection{Center of full loop}
+At the center of a full loop, $ \phi $ becomes $ 2\pi $ and as such cancels with the denominator. As such,
+\[ B = \frac{\mu_0 i}{2 R} \]
+
+\section{Force Between Two Wires}
+Since a wire with current produces a magnetic field, and a wire with current within a magnitude feels a force, that must mean when two wires are close to each other, they feel a force on each other. This is true, and a force on one wire is given by:
+\[ F_{ba} = i_b \vec{L} \cross \vec{B}_a \]
+When the two wires are parallel (which will always be the case in this course), this can be simplified to:
+\[ F_{ba} = i_b L B_a = \frac{\mu_0 L i_a i_b}{2 \pi d} \]
+Where $ L $ is the length of wire $ b $ and $ d $ is the distance between the two wires. The direction of this force is simple: If the two wires have current in the same direction, the force is towards the other wire. If the two wires have current in the opposite direction, the force is away from the other wire.
+
+\section{Ampere's Law}
+Remember Gauss's Law? There's a magnetic analogue to that! This allows us to find the encoded currents within a loop knowing its magnetic field:
+\[ \oint \vec{B} \cdot \dd \vec{s} = \mu_0 i_{\text{enc}} \]
+We integrate this over an arbitrary loop, much like a Gaussian surface. This loop is known as an \emph{Amperian Loop}
+
+The right hand rule tells us which direction is positive. Curl your fingers in the direction of the loop, and your thumb indicates the positive direction.
+
+\subsection{Applied to A Single Wire}
+In a single wire, let's assume the current flows into the page. In a clockwise direction, this means that:
+\[ \oint \vec{B} \cdot \dd \vec{s} = B(2\pi r) = \mu_0 i_{\text{enc}} \]
+Make this negative for counterclockwise. Notice how this can easily be rearranged for the previous equation of finding the magnetic field around a wire!
+
+\subsection{Inside a Wire}
+\[ i_{\text{enc}} = i \frac{\pi r^2}{\pi R^2} \]
+\[ B = \left(\frac{\mu_0 i}{2 \pi R^2}\right)r \]
+Where $ r $ is the radius of the loop and $ R $ is the radius of the wire.
+
+\subsection{Solenoid (coil)}
+A solenoid is simply a conducting coil. This makes it so that the magnetic field on each side adds with each other, producing a large magnetic field through the middle of the solenoid. In an ideal solenoid, the magnetic field is equal to the following:
+\[ B = \mu_0 i n \]
+Where $ n $ is the number of turns \emph{per unit length}. See page 849 for more details.
+
+\subsection{Toroid}
+We can think of a toroid as a hollow solenoid with its two ends meeting. This forms a magnetic field that runs in a circle around the toroid. Applying Ampere's Law to this circular magnetic field yields:
+\[ B = \frac{\mu_0 i N}{2 \pi r} \]
+Where $ r $ is the radius of the Amperian circle.
+
+\section{Current-Carrying Coil as a Magnetic Dipole}
+If we take a magnetic dipole (such as a N-S magnet) and make a current coil around it, recall that it feels a torque:
+\[ \vec{\tau} = \vec{\mu} \cross \vec{B} \]
+
+Now we want to know the magnetic field of such a coil. Ampere's Law isn't too useful here, so we use Biot-Savart to derive the following:
+\[ \vec{B}_z - \frac{\mu_0 \, \vec{\mu}}{2\pi z^3} \]
+Recall that $ \vec{\mu} = NiA $.
+
+\end{document}

@@ -1,0 +1,135 @@
+\documentclass[]{article}
+\usepackage[T1]{fontenc}
+\usepackage{siunitx}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{physics}
+
+\begin{document}
+\section{LC Oscillations}
+\subsection{Qualitatively}
+An LC circuit consists of a capacitor and inductor. At $ t = 0 $ the capacitor has a charge $ +q $ and $ -q $ on its sides. Recall that an inductor \emph{starts out} as a broken wire at the very beginning, therefore all the emf (and energy) is due to the capacitor. Once the circuit is closed, the current starts existing and the capacitor starts being discharged. The emf then gets stored in the inductor as a magnetic field. Once that reaches its maximum, it starts discharging again, but crucially, now the charges on the capacitor have switches places. When the capacitor completely charges, it switches current direction and begins discharging again. Rinse and repeat. For a good diagram on this, see page 904.
+
+\subsection{New Conventions}
+Because of this oscillation, we're going to label the \emph{amplitude} of whatever single-object variable as its uppercase letter. For example, the amplitude of a oscillation for a capacitor with current $ i_C $ will be $ I_C $.
+
+\subsection{Quantitatively}
+We can derive a differential equation by seeing that the energy $ U $ of the entire circuit system must remain constant. For details, see page 908. For our purposes, the derivation is not important and we solve it with the following equation for an oscillating circuit:
+\[ q = Q_m\cos\left(\omega t + \phi\right) \]
+\[ i = \dv{q}{t} = - \omega Q_m \sin\left(\omega t + \phi\right) \]
+\[ \omega = \frac{1}{\sqrt{LC}} \]
+The amplitude $ I = \omega Q $, so we can write $ i = -I \sin\left(\omega t + \phi\right) $.
+
+\section{RLC Circuit}
+An LC circuit is made slightly more complicated with the introduction of a resistor, but not by much. Since the resistor dissipates power, it decays the oscillation amplitude and slightly alters the rotational frequency:
+\[ q = Q_m e^{-Rt/2L} \cos\left(\omega ' t + \phi\right) \]
+\[ \omega' = \sqrt{\omega^2 - \left(\frac{R}{2L}\right)^2} = \sqrt{\frac{1}{LC} - \left(\frac{R}{2L}\right)^2} \]
+
+At $ t = 0 $, $ q = Q_m \cos\left(\omega ' t + \phi\right) $. As $ t \to \infty $, $ q \to 0 $.
+
+\section{Driven RLC Circuit}
+You fool. You thought it was that simple? No; now we're getting into driven RLC circuits. A driven circuit means that we add an oscillating emf source of our own. Since we control the oscillation, we can simply model the oscillation with a sine function:
+\[ \mathcal{E} = \mathcal{E}_m \sin \left(\omega_d t\right) \]
+Where $ \mathcal{E}_m $ is the amplitude of the oscillation and $ \omega_d $ is the driving rotational frequency of the oscillation, equal to $ 2 \pi f_d $. Note that when emf changes sinusoidally like this, the \emph{current produced} also changes sinusoidally
+\[ i = I \sin \left(\omega_d t - \phi\right) \]
+We include the phase angle $ \phi $ because the current produced may not be in phase with the emf (this depends on the circuit that this is connected to).
+
+\subsection{Very Simple Case - Resistor}
+Imagine a circuit consisting of only an oscillating emf source and a resistor. Using the loop equation,
+\[ \mathcal{E} - v_R = 0 \]
+\[ v_R = \mathcal{E}_m \sin \left(\omega_d t\right) \]
+Since the amplitude $ V_R $ of the oscillating potential difference across the resistor is equal to $ \mathcal{E}_m $, we can substitute it for that in this simple example. We can introduce the equation for current (more details on page 915) and rearrange some stuff to get the following:
+\[ V_R = I_R R \]
+For a resistor circuit, the emf and current are in phase with one another.
+
+This model works for \emph{every AC circuit}, not just the simple example, which is what makes this model very powerful.
+
+\subsection{Detour - Phasors}
+Before we go on, let's see a different way of visualizing this oscillation.
+
+Phasors are a geometrical way of representing oscillations. Since a circle is directly related to the values of sine and cosine, we can represent the values of $ v_R $ and $ i_R $ as vectors in a circle that rotate at the rate $ \omega_d $. The magnitude of the vectors are $ V_R $ and $ I_R $ respectively, and its projection on the y-axis represents the value of its respective association at any point in time. Finally, the rotation angle is the phase of the quantity at time $ t $, which is why it's also called the \emph{phase angle} sometimes. A complete rotation represents one period. For visual representations, see page 916 to 919.
+
+\section{Alright, Let's Dive In}
+There's two other simple cases the book covers, but those specifically aren't super relevant for our uses. Though, from those case studies, the book defines some variables, called \emph{capacitive resistance} and \emph{inductive resistance}, and makes some conclusions:
+\[ X_C = \frac{1}{\omega_d C} \]
+\[ V_C = I_C X_C \]
+\[ X_L = \omega_d L \]
+\[ V_L = I_L X_L \]
+\begin{itemize}
+  \item The current of a purely capacitive load \emph{leads} (peaks earlier than) the potential difference by $ \pi / 2 $. i.e. $ \phi = - \ang{90} $
+  \item The current of a purely inductive load \emph{lags} (peaks later than) the potential difference by $ \pi / 2 $. i.e. $ \phi = \ang{90} $
+\end{itemize}
+
+These will be useful later.
+
+\subsection{Driven RLC Circuit (in Series)}
+A driven RLC circuit is just an RLC circuit but with an added oscillating emf source (for a real-life analogue, this is what you would call the energy from your power company or whatever). Let's represent the emf as we did before:
+\[ \mathcal{E} = \mathcal{E}_m \sin\left(\omega_d t\right) \]
+And the current as we did before, since the RLC is all in series:
+\[ i = I \sin \left(\omega_d t - \phi\right) \]
+
+We know the amplitude of the emf $ \mathcal{E}_m $ and the driving frequency $ \omega_d $. We do not know the current amplitude nor the current phase angle. We do, however, also know the phase angle of each individual part, as we showed before:
+\begin{itemize}
+  \item Resistor - in phase with emf, or $ \phi = 0 $
+  \item Capacitor - leads emf by $ \pi/2 $, or $ \phi = - \pi/2 $
+  \item Inductor - lags emf by $ \pi/2 $, or $ \phi = \pi/2 $
+\end{itemize}
+
+\subsection{Finding the Current Amplitude}
+We can apply our knowledge to the loop rule:
+\[ \mathcal{E} = v_R + v_C + v_L \]
+And realize that $ \mathcal{E}_m $ must be equal to the vector sum of the magnitudes of the three other phasors at all times. Since $ V_L $ and $ V_C $ are in opposite directions, we can simply think of this as one vector with magnitude $ V_L - V_C $. Given the visual representation (see page 922), we can use the Pythagorean theorem to yield:
+\[ \mathcal{E}_m^2 = V_R^2 + \left(V_L - V_C\right)^2 \]
+\[ \mathcal{E}_m^2 = \left(IR\right)^2 + \left(IX_L - IX_C\right)^2 \]
+\[ I = \frac{\mathcal{E}_m}{\sqrt{R^2 + \left(X_L - X_C\right)^2}} \]
+Awesome! That's exactly what we were after. One thing to note is that the denominator of this has a special name. It's called the \emph{impedance} and is denoted by $ Z $. It's a more generalized form of resistance that applies to AC circuits.
+
+\subsection{Finding the Current Phase}
+We're not done yet, though. We still need to find the phase of the current. Using the same triangle visual on page 922, we can see that:
+\[ \tan \phi = \frac{X_L - X_C}{R} \]
+Knowing this, we can see that there are three states this phase constant can be in:
+\begin{itemize}
+  \item $ X_L > X_C $: $ 0 < \phi < \pi/2 $; the current is \emph{more inductive than capacitive.} Phasor $ I $ rotates behind phasor $ \mathcal{E}_m $
+  \item $ X_L < X_C $: $ -\pi/2 < \phi < 0 $; the current is \emph{more capacitive than inductive}. Phasor $ I $ rotates ahead of phasor $ \mathcal{E}_m $
+  \item $ X_C = X_L $: $ \phi = 0 $; the current is \emph{in resonance}. Phasor $ I $ has the same phase as phasor $ \mathcal{E}_m $. If you were to graph $ \mathcal{E} $ and $ i $ versus time, the amplitudes would match.
+\end{itemize}
+
+\subsection{Resonance}
+The current is in resonance when $ \phi = 0 $ because the phasors for $ V_C $ and $ V_L $ cancel out, leaving the full weight of the magnitude of the $ I $ phasor to take shape. To achieve resonance,
+\[ \omega_d = \omega = \frac{1}{\sqrt{LC}} \]
+As this value of $ \omega_d $ makes $ X_L - X_C = 0 $.
+
+\section{Power Dissipated in AC Circuits}
+In our driven LRC circuit, the instantaneous rate at which power is dissipated in the resistor still follows $ P = i^2 R $. Substituting all the values, we get:
+\[ P = i^2 R = I^2 R \sin^2 \! \left(\omega_d t - \phi\right) \]
+This is cool, but for this to be any real use, we want the \emph{average rate} of it over some amount of time. The average value of $ \sin^2 t $ across a period of time is $ 1/2 $, so we can find $ P_{\mathrm{avg}} $ by the following:
+\[ P_{\mathrm{avg}} = \frac{I^2 R}{2} = \left(\frac{I}{\sqrt{2}}\right)^2 \! R \]
+$ I / \sqrt{2} $ has a special name, and we call it the \emph{root mean square}, or \emph{rms}. Thus, we can write the equation for average power like $ P_{\mathrm{avg}} = I_{\mathrm{rms}}^2 R $.
+Using a similar process of $ \sin^2 $ wrangling for other values, we can define new rms values as well:
+\[ V_{\mathrm{rms}} = \frac{V}{\sqrt{2}} \qquad \mathcal{E}_{\mathrm{rms}} = \frac{\mathcal{E}_m}{\sqrt{2}} \]
+Do note that because the proportionality factor of $ 1/\sqrt{2} $ is shared by $ I $, $ V $, and $ \mathcal{E}_m $, we can rewrite that one current amplitude equation from section 4.2 with rms values for $ I $ and $ \mathcal{E}_m $. rms values are usually used for reporting and such.
+
+Using $ I_{\mathrm{rms}} = \mathcal{E}_{\mathrm{rms}} / Z $, we can derive the following (more details on page 928):
+\[ P_{\mathrm{avg}} = \mathcal{E}_{\mathrm{rms}} I_{\mathrm{rms}} \cos \phi \]
+
+\section{Transformers}
+\emph{Note that this section drops the rms subscript for relevant values. This follows convention.}
+\subsection{Why Transformers?}
+Recall that when an AC circuit has only a resistive load, the average rate of power dissipated is the following:
+\[ P_{\mathrm{avg}} = \mathcal{E} I = I V = I^2 R \]
+In power distribution systems, it's safer to deal with low voltages and current at the generating and receiving end, but it's much more efficient to use high current and voltages when transmitting to minimize power loss. We solve this with \emph{transformers}, which operate purely based on Faraday's Law of Induction and has no DC counterpart.
+
+\section{Simple Transformer}
+An ideal transformer consists of two separate wired circuits, but connected through two different sides being coiled around an iron core. The side with the emf source is the \emph{primary} side and the side that receives the transformed emf is the \emph{secondary} side. We assume that the windings themselves have zero resistance, which is close enough to real life.
+
+Anyway, the primary coil is connected to an emf source $ \mathcal{E} = \mathcal{E}_m \sin\left(\omega t\right) $. When activated, it sends a magnetic flux through the iron core and brings it to the secondary. Because this flux varies, it produces an emf in each turn of the secondary. This emf per turn is the exact same in the primary and secondary. Since this emf per turn is the same in the primary and secondary, we can derive the following:
+\[ \mathcal{E}_{\mathrm{turn}} = \frac{V_p}{N_p} = \frac{V_s}{N_s} \]
+\[ V_s = V_p \frac{N_s}{N_p} \]
+Where $ N $ represents the number of turns around the iron core. If you want more details on this, see page 931.
+
+Using conservation of energy, we can also derive:
+\[ I_s = I_p \frac{N_p}{N_s} \]
+Note that the fraction is flipped now. Finally,
+\[ R_{\mathrm{eq}} = \left(\frac{N_p}{N_s}\right)^2 \! R \]
+
+\end{document}

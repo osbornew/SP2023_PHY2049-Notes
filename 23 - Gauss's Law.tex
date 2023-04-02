@@ -1,0 +1,66 @@
+\documentclass[]{article}
+\usepackage[T1]{fontenc}
+\usepackage{siunitx}
+
+\begin{document}
+\section{The Basics}
+We used the charge to determine the electric field, but this can be done in reverse. We can use the electric field to determine the charge.
+
+\section{Electric Flux}
+We quantify or mathematically express the electric field going through a surface with the flux $ \Phi $. This flux is defined as
+\[ \Phi = \oint \vec{E} \cdot d\vec{A} \]
+\[ \Phi = \vec{E} \cdot \vec{A} = E \cos\left(\theta\right) A \]
+with $ E $ being the electric field, $ \theta $ being the angle between said field and the \emph{normal} to the surface, and $ A $ being the area of the surface. It is important to remember that the dot product is just the magnitudes of the two vectors times the cosine of the angle between them.
+For our purposes, you can ignore the $ \cos(\theta) $ and find the net flux in each individual direction to then total up.
+\subsection{Net Flux Through Closed Surface}
+For a closed surface, add up all the individual fluxes through each individual bounded surface. It is convention to define the normal as going \emph{out} of the surface.
+Note that if a field is constant and not dependent on position, opposing parallel sides of a uniform surface will cancel each other out.
+\subsubsection{Example: Cube}
+Imagine a cube with side length $ s=\qty{2}{\meter} $ and bounded by the points $ (0,0,0) $ and $ (2,2,2) $. A uniform electric field exists and is defined by $ \vec{E} = 3x^2 \hat{i} + 4 \hat{j} + 2z \hat{k} $. To find the electric flux through the cube, do so in each individual direction:
+\[ \Phi_x = \Phi_{x,1} + \Phi_{x,2} \]
+\[ \Phi_{x,1} = \vec{E}_{x,1} \times A_{x,1} = 3(0)^2 \times 2^2 = 0 \]
+\[ \Phi_{x,2} = \vec{E}_{x,2} \times A_{x,2} = 3(2)^2 \times 2^2 = \qty{48}{\newton\meter\squared\per\coulomb} \]
+\[ \Phi_x = 0 + 48 = \qty{48}{\newton\meter\squared\per\coulomb} \]
+Since the electric field in the y direction is constant, there is no net flux for the faces normal to $ \hat{j} $. Finally, a similar calculation for the z direction results in $ \Phi_z = \qty{16}{\newton\meter\squared\per\coulomb} $. Thus, the net flux through the cube is $ \Phi = 48 \hat{i} + 16 \hat{k} $
+
+\section{Gauss's Law}
+The net flux through a closed (Gaussian) surface determines the charge enclosed. The surface is a mathematical construct, and does not need to be a physical surface.
+\[ \epsilon_0 \Phi = q_{enc} \]
+\[ \epsilon_0 \oint \vec{E} \cdot d\vec{A} = q_{enc} \]
+\[ \epsilon_0 E \cos(\theta) A = q_{enc}\]
+Using Gauss's Law, we can re-derive equations for the electric field of other surfaces. Additionally, we can use these equations to see the charge enclosed by a particular Gaussian surface.
+
+\subsection{Point Charge (spherical symmetry)}
+Outside a shell of uniform charge $ q $, the electric field is the same as what was derived through Coulomb's Law:
+\[ E = \frac{1}{4\pi\epsilon_0} \frac{q}{r^2} \]
+With $ r $ being the distance from the center of the shell to the point of measurement (Gaussian sphere radius). However, on the inside of a shell of uniform charge density, the field has magnitude
+\[ E = \frac{1}{4\pi\epsilon_0} \frac{q}{R^3} r \]
+With $ r $ being the distance from the center of the shell to the point of measurement (Gaussian sphere radius) and $ R $ being the radius of the physical shell/sphere itself.
+
+\subsection{Around A Wire (cyllindrical symmetry)}
+\[ E = \frac{\lambda}{2\pi\epsilon_0 r} \]
+Recall that $ \lambda = \frac{q}{\ell} $
+
+\subsection{Plane of Charge}
+\[ E = \frac{\sigma}{2\epsilon_0} \]
+For both normals to the plane. Recall that $ \sigma = \frac{q}{A} $
+
+\subsection{Infinite Conducting Plane}
+Given $ \sigma $, the distribution of said density on each side results in a charge on each surface of $ \frac{\sigma}{2} $. Meaning that the electric field is still $ \frac{\sigma}{2 \epsilon_{0}} $, but this should also be thought of as $ \frac{\frac{\sigma}{2}}{\epsilon_{0}} $
+Using the superposition principle, problems to find the field between two or more plates becomes as simple as adding units of $ \frac{\sigma}{2\epsilon_0} $
+
+\section{Charged Isolated Conductors (Electrostasis)}
+On an isolated conductor, any excess charge resides on the surface of the conductor since like charges repel each other. Additionally, the electric field inside the conductor is 0 since the net charge inside is 0.
+\subsection{Graphing Problem}
+\subsubsection{Nonconducting Shells}
+In nonconducting spherical shells with a charged particle in the center, surfaces that enclose the various shells will have enclosed charge 
+\[ Q_{enc} = \sum_{n = 1}^{k} q_{n} \]
+where k is the amount of distinct shells present in the problem.
+
+\subsubsection{Conducting Shells}
+In conducting spherical shells with a charged particle in the center, the same idea applies, but the flux inside of a conductor is 0, while outside the conductor is not 0 (unless it's not charged). This means that the charge inside a conductor cancels out the charge of what the conductor shell encloses (See page 5).
+
+\section{Uniform Charge Density (3D)}
+This was kinda shoehorned in at the end of our Gauss's Law week, but in 3d space, we can derive certain cases by using $ \rho = \frac{q}{V} $ with $ V $ being the volume of the enclosed surface. Honestly don't remember what this was used for but it wasn't on the exam so whatever.
+
+\end{document}
